@@ -12,20 +12,20 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -33,63 +33,33 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Show built dist contents (debug)
+      - name: Verify build output
         run: |
-          echo "--- dist index.html (head) ---"
-          head -n 60 dist/index.html || true
-          echo "--- dist listing ---"
-          ls -la dist || true
-          echo "--- dist/assets listing ---"
-          ls -la dist/assets || true
+          echo "=== Build verification ==="
+          echo "Checking dist folder contents..."
+          ls -lah dist/
+          echo ""
+          echo "Checking dist/assets folder..."
+          ls -lah dist/assets/ || echo "No assets folder"
+          echo ""
+          echo "Checking index.html..."
+          cat dist/index.html
+          echo ""
+          echo "=== Verifying critical files ==="
+          test -f dist/index.html && echo "✓ index.html exists" || (echo "✗ index.html missing" && exit 1)
+          test -f dist/assets/index.js && echo "✓ index.js exists" || (echo "✗ index.js missing" && exit 1)
+          test -f dist/assets/index.css && echo "✓ index.css exists" || (echo "✗ index.css missing" && exit 1)
+          test -f dist/.nojekyll && echo "✓ .nojekyll exists" || echo "⚠ .nojekyll missing (may cause issues)"
+          test -f dist/favicon.svg && echo "✓ favicon.svg exists" || echo "⚠ favicon.svg missing"
 
-      - name: Verify referenced assets exist
-        run: |
-          echo "Checking files referenced in dist/index.html (only local relative paths)"
-          missing=0
-          # extract src/href values from index.html
-          for f in $(grep -oP '(?<=src="|href=")[^"]+' dist/index.html); do
-            # skip absolute URLs (http:, https:, //), data: and mailto: links
-            if echo "$f" | grep -qE '^(https?:|//|data:|mailto:)'; then
-              echo "SKIP external: $f"
-              continue
-            fi
-            # normalize leading './' or leading '/'
-            p=${f#./}
-            p=${p#/}
-            # only check files within dist
-            if [ ! -f "dist/$p" ]; then
-              echo "MISSING: dist/$p"
-              missing=1
-            else
-              echo "OK: dist/$p"
-            fi
-          done
-          if [ "$missing" -eq 1 ]; then
-            echo "One or more referenced local files are missing. Aborting upload."
-            exit 1
-          fi
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: Upload dist artifact (debug)
-        uses: actions/upload-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dist
-          path: dist
+          path: ./dist
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
