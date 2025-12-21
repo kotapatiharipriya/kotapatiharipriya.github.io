@@ -32,15 +32,6 @@ const Index = () => {
               <div className="space-y-6">
                 {/* Render research entries using the same card pattern and animations as Experience */}
                 <div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-6"
-                  >
-                    <h3 className="section-subtitle">Research Overview</h3>
-                  </motion.div>
 
                   <div className="space-y-6">
                     {/* Ongoing Research Card */}
