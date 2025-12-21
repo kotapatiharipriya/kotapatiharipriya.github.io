@@ -27,30 +27,65 @@ const Index = () => {
               <p className="section-subtitle">Selected research activities and publications.</p>
             </div>
 
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-card rounded-lg p-6 border border-border">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Ongoing Research</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start justify-between">
-                      <div className="pr-4">
-                        <h4 className="text-md font-medium text-foreground">Reinforcement learning for load-aware UAV Wi‑Fi association and 3D positioning</h4>
-                      </div>
-                      <span className="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Ongoing</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-6">
+                {/* Render research entries using the same card pattern and animations as Experience */}
+                <div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-6"
+                  >
+                    <h3 className="section-subtitle">Research Overview</h3>
+                  </motion.div>
 
-                <div className="bg-card rounded-lg p-6 border border-border">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Publications</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start justify-between">
-                      <div className="pr-4">
-                        <h4 className="text-md font-medium text-foreground">Augmented Reality-Based Navigation for Nearby Facility Exploration: Enhancing Spatial Awareness and User Experience</h4>
-                        <p className="text-sm text-muted-foreground mt-1">International Journal of Creative Research Thoughts (IJCRT), 2025.</p>
+                  <div className="space-y-6">
+                    {/* Ongoing Research Card */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5 }}
+                      viewport={{ once: true }}
+                      className="bg-card rounded-lg p-6 border border-border card-hover"
+                      tabIndex={0}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 bg-primary/10 rounded-lg">
+                          <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20v-6"/><path d="M12 4v4"/><path d="M4 12h16"/></svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                            <h4 className="text-xl font-semibold text-foreground">Reinforcement learning for load-aware UAV Wi‑Fi association and 3D positioning</h4>
+                            <span className="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Ongoing</span>
+                          </div>
+                        </div>
                       </div>
-                      <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 rounded">Completed</span>
-                    </div>
+                    </motion.div>
+
+                    {/* Publication Card */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.08 }}
+                      viewport={{ once: true }}
+                      className="bg-card rounded-lg p-6 border border-border card-hover"
+                      tabIndex={0}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 bg-primary/10 rounded-lg">
+                          <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20v-6"/><path d="M12 4v4"/><path d="M4 12h16"/></svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                            <h4 className="text-xl font-semibold text-foreground">Augmented Reality-Based Navigation for Nearby Facility Exploration: Enhancing Spatial Awareness and User Experience</h4>
+                            <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 rounded">Completed</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-1">International Journal of Creative Research Thoughts (IJCRT), 2025.</p>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
