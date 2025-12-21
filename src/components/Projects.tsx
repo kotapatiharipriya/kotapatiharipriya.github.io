@@ -72,7 +72,8 @@ const projects = [
     description: "Regression analysis on trip-level data incorporating geospatial, temporal, and distance-based variables for fare estimation.",
     image: asset("outputs/Taxi Fare Prediction/Picture1.png"),
     tags: ["Regression", "EDA", "Geospatial Analysis", "Data Analysis"],
-    github: "https://github.com/kotapatiharipriya/taxi-fare-prediction",
+    // Repository not available/public yet
+    github: "",
     outputs: [
       "outputs/Taxi Fare Prediction/Picture1.png",
       "outputs/Taxi Fare Prediction/Picture2.png",
@@ -84,7 +85,8 @@ const projects = [
     description: "Classification model identifying factors influencing vaccination status using demographic and health attributes with feature selection.",
     image: asset("outputs/vaccination status/Picture1.png"),
     tags: ["Classification", "Feature Selection", "Data Preprocessing"],
-    github: "https://github.com/kotapatiharipriya/vaccination-prediction",
+    // Repository not available/public yet
+    github: "",
     outputs: [
       "outputs/vaccination status/Picture1.png",
       "outputs/vaccination status/Picture2.png",
@@ -141,15 +143,20 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      View on GitHub <ExternalLink className="w-4 h-4 ml-1" />
-                    </a>
-                  </Button>
+                <div className="flex gap-2 items-center">
+                  {project.github ? (
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        View on GitHub <ExternalLink className="w-4 h-4 ml-1" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <div className="text-sm text-muted-foreground">Repository unavailable</div>
+                  )}
+
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button variant="outline" size="sm" onClick={() => setSelectedProject(project)}>
+                      <Button variant="outline" size="sm">
                         <ImageIcon className="w-4 h-4 mr-1" />
                         Outputs
                       </Button>
