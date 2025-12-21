@@ -9,12 +9,12 @@ export default defineConfig({
   base: "/",
   plugins: [react()],
   build: {
-    // Emit deterministic asset names so the deployed site references consistent files.
+    // Emit asset names with hash for cache-busting on GitHub Pages
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/index.js',
-        chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name][extname]'
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]'
       }
     }
   },
