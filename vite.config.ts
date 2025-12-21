@@ -16,6 +16,16 @@ const normalizeBase = (value?: string) => {
 export default defineConfig({
   base: normalizeBase(process.env.VITE_BASE_PATH),
   plugins: [react()],
+  build: {
+    // Emit deterministic asset names so the deployed site references consistent files.
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/index.js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]'
+      }
+    }
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

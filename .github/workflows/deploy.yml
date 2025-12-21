@@ -44,6 +44,32 @@ jobs:
           echo "--- dist/assets listing ---"
           ls -la dist/assets || true
 
+      - name: Verify referenced assets exist
+        run: |
+          echo "Checking files referenced in dist/index.html"
+          missing=0
+          # extract src/href values from index.html
+          for f in $(grep -oP '(?<=src="|href=")[^"]+' dist/index.html); do
+            # normalize leading './'
+            p=${f#./}
+            if [ ! -f "dist/$p" ]; then
+              echo "MISSING: dist/$p"
+              missing=1
+            else
+              echo "OK: dist/$p"
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            echo "One or more referenced files are missing. Aborting upload."
+            exit 1
+          fi
+
+      - name: Upload dist artifact (debug)
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
