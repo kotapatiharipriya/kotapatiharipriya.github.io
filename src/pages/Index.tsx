@@ -30,14 +30,28 @@ const Index = () => {
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-card rounded-lg p-6 border border-border">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Research Topic</h3>
-                  <p className="text-muted-foreground leading-relaxed">Research on reinforcement learning for load-aware UAV Wi-Fi association and 3D positioning to improve throughput, fairness, and stability.</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Ongoing Research</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div className="pr-4">
+                        <h4 className="text-md font-medium text-foreground">Reinforcement learning for load-aware UAV Wi‑Fi association and 3D positioning</h4>
+                      </div>
+                      <span className="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Ongoing</span>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="bg-card rounded-lg p-6 border border-border">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Publication</h3>
-                  <p className="text-muted-foreground mb-3">Haripriya, Kotapati. <em>Augmented Reality-Based Navigation for Nearby Facility Exploration: Enhancing Spatial Awareness and User Experience.</em></p>
-                  <p className="text-sm text-muted-foreground">International Journal of Creative Research Thoughts (IJCRT), 2025.</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Publications</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div className="pr-4">
+                        <h4 className="text-md font-medium text-foreground">Augmented Reality-Based Navigation for Nearby Facility Exploration: Enhancing Spatial Awareness and User Experience</h4>
+                        <p className="text-sm text-muted-foreground mt-1">International Journal of Creative Research Thoughts (IJCRT), 2025.</p>
+                      </div>
+                      <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 rounded">Completed</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

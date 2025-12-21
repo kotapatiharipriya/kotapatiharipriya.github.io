@@ -28,14 +28,15 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <motion.a
             href="#"
-            className="text-xl font-bold text-primary"
+            className="flex items-center gap-3 text-xl font-bold text-primary"
             whileHover={{ scale: 1.05 }}
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            HK
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary">HK</span>
+            <span className="text-sm font-medium text-muted-foreground hidden sm:inline">Portfolio</span>
           </motion.a>
 
           {/* Desktop Navigation */}

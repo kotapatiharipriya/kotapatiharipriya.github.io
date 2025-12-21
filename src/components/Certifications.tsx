@@ -18,8 +18,7 @@ const certifications = [
     issuer: "Swecha",
     date: "May 14, 2024 – June 21, 2024",
     image: asset("cert-swecha.svg"),
-    pdf: "",
-    description: "Participated in the Summer of AI Internship Program at Swecha. Contributions were instrumental in advancing the mission to build AI solutions for preserving culture and supporting language advancement.",
+    pdf: asset("documents/swecha.pdf"),
   },
   {
     title: "Cybersecurity",
@@ -55,7 +54,6 @@ const certifications = [
     date: "",
     image: asset("cert-azure.png"),
     pdf: "https://www.linkedin.com/posts/hari-priya-kotapati_training-activity-7172843516979609601-5pav?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25WbABTV8qyBOQqYobAPkE8q2PCbmiipg",
-    description: "Excited to share that I've successfully completed the Microsoft Student Technical Training Cloud Skills Challenge!",
   },
 ];
 
