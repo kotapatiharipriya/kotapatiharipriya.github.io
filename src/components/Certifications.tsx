@@ -21,7 +21,7 @@ const certifications = [
     pdf: asset("documents/Azure.pdf"),
   },
   {
-    title: "Cyber Security",
+    title: "Cybersecurity",
     issuer: "Cisco Networking Academy",
     date: "May 2024",
     image: asset("cert-cybersecurity.png"),
@@ -42,11 +42,19 @@ const certifications = [
     pdf: asset("documents/Java.pdf"),
   },
   {
-    title: "PHP and MySQL Training",
+    title: "PHP & MySQL Training",
     issuer: "Spoken Tutorial Project, IIT Bombay",
     date: "June 2023",
     image: asset("cert-phpandsql.png"),
     pdf: asset("documents/PHPandSQL.pdf"),
+  },
+  {
+    title: "Microsoft Student Technical Training – Cloud Skills Challenge",
+    issuer: "Microsoft Student Technical Training",
+    date: "",
+    image: asset("cert-azure.png"),
+    pdf: "https://www.linkedin.com/posts/hari-priya-kotapati_training-activity-7172843516979609601-5pav?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25WbABTV8qyBOQqYobAPkE8q2PCbmiipg",
+    description: "Excited to share that I've successfully completed the Microsoft Student Technical Training Cloud Skills Challenge!",
   },
 ];
 
@@ -89,9 +97,12 @@ const Certifications = () => {
                   {cert.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-2">{cert.issuer}</p>
+                {cert.description && (
+                  <p className="text-sm text-foreground mb-2">{cert.description}</p>
+                )}
                 <p className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
                   <Calendar className="w-4 h-4" />
-                  Issued: {cert.date}
+                  {cert.date ? <>Issued: {cert.date}</> : "Issued: —"}
                 </p>
                 <Button variant="outline" size="sm" asChild>
                   <a href={cert.pdf} target="_blank" rel="noopener noreferrer">

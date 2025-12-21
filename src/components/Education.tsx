@@ -7,7 +7,7 @@ const educationData = [
     field: "Computer Engineering (Machine Learning)",
     institution: "San Diego State University",
     location: "San Diego, California, USA",
-    cgpa: "3.54/4.0",
+    // Master's CGPA intentionally omitted per profile update
     duration: "August 2025 - in progress",
   },
   {
@@ -15,7 +15,7 @@ const educationData = [
     field: "Computer Engineering",
     institution: "Osmania University",
     location: "Hyderabad, Telangana, India",
-    cgpa: "TBD",
+    cgpa: "3.54 / 4",
     duration: "November 2021 - April 2025",
   },
 ];
@@ -64,8 +64,12 @@ const Education = () => {
                       <MapPin className="w-4 h-4" />
                       {edu.location}
                     </span>
-                    <span className="hidden sm:inline">•</span>
-                    <span>CGPA: {edu.cgpa}</span>
+                    {edu.cgpa && (
+                      <>
+                        <span className="hidden sm:inline">•</span>
+                        <span>CGPA: {edu.cgpa}</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
