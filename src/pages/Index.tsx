@@ -27,13 +27,18 @@ const Index = () => {
               <p className="section-subtitle">Selected research activities and publications.</p>
             </div>
 
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-card rounded-lg p-6 border border-border card-hover">
-                <h3 className="text-lg font-semibold text-foreground mb-2">Research Topic</h3>
-                <p className="text-muted-foreground mb-4">Research on reinforcement learning for load-aware UAV Wi-Fi association and 3D positioning to improve throughput, fairness, and stability.</p>
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-card rounded-lg p-6 border border-border">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Research Topic</h3>
+                  <p className="text-muted-foreground leading-relaxed">Research on reinforcement learning for load-aware UAV Wi-Fi association and 3D positioning to improve throughput, fairness, and stability.</p>
+                </div>
 
-                <h3 className="text-lg font-semibold text-foreground mb-2">Publication</h3>
-                <p className="text-muted-foreground">Haripriya, Kotapati. Augmented Reality-Based Navigation for Nearby Facility Exploration: Enhancing Spatial Awareness and User Experience. International Journal of Creative Research Thoughts (IJCRT), 2025.</p>
+                <div className="bg-card rounded-lg p-6 border border-border">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Publication</h3>
+                  <p className="text-muted-foreground mb-3">Haripriya, Kotapati. <em>Augmented Reality-Based Navigation for Nearby Facility Exploration: Enhancing Spatial Awareness and User Experience.</em></p>
+                  <p className="text-sm text-muted-foreground">International Journal of Creative Research Thoughts (IJCRT), 2025.</p>
+                </div>
               </div>
             </div>
           </div>

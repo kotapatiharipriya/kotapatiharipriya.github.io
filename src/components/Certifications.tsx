@@ -14,11 +14,12 @@ const certifications = [
     pdf: asset("documents/DataAnlytics.pdf"),
   },
   {
-    title: "Microsoft Azure Fundamentals",
-    issuer: "Microsoft",
-    date: "2024",
+    title: "Summer of AI Internship Program – Swecha",
+    issuer: "Swecha",
+    date: "May 14, 2024 – June 21, 2024",
     image: asset("cert-azure.png"),
-    pdf: asset("documents/Azure.pdf"),
+    pdf: "",
+    description: "Participated in the Summer of AI Internship Program at Swecha. Contributions were instrumental in advancing the mission to build AI solutions for preserving culture and supporting language advancement.",
   },
   {
     title: "Cybersecurity",
@@ -84,13 +85,23 @@ const Certifications = () => {
               className="bg-card rounded-lg overflow-hidden border border-border card-hover"
             >
               <div className="aspect-video overflow-hidden cursor-pointer">
-                <a href={cert.pdf} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                {cert.pdf ? (
+                  <a href={cert.pdf} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </a>
+                ) : (
+                  <div>
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">
@@ -104,11 +115,13 @@ const Certifications = () => {
                   <Calendar className="w-4 h-4" />
                   {cert.date ? <>Issued: {cert.date}</> : "Issued: —"}
                 </p>
-                <Button variant="outline" size="sm" asChild>
-                  <a href={cert.pdf} target="_blank" rel="noopener noreferrer">
-                    View PDF <ExternalLink className="w-4 h-4 ml-1" />
-                  </a>
-                </Button>
+                {cert.pdf && (
+                  <Button variant="outline" size="sm" asChild>
+                    <a href={cert.pdf} target="_blank" rel="noopener noreferrer">
+                      View PDF <ExternalLink className="w-4 h-4 ml-1" />
+                    </a>
+                  </Button>
+                )}
               </div>
             </motion.div>
           ))}
