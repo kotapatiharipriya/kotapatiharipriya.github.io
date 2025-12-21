@@ -10,15 +10,15 @@ const projects = [
   {
     title: "Navigating Nearby Facilities using Augmented Reality",
     description: "AR-based Android application built using Unity, ARCore, and Google Maps API to visualize nearby facilities in real time through camera overlays.",
-    // Preview image updated to clearly show the outward green arrow as requested
-    image: asset("outputs/Navigating Facilities/screen11.png"),
+    // Preview image updated per request to screen2.png
+    image: asset("outputs/Navigating Facilities/screen2.png"),
     tags: ["Unity", "ARCore", "Google Maps API", "GPS", "3D Spatial Mapping"],
     github: "https://github.com/kotapatiharipriya/Navigating_nearby_facilities_using_Augmented_Reality",
     outputs: [
+      "outputs/Navigating Facilities/screen2.png",
       "outputs/Navigating Facilities/screen11.png",
       "outputs/Navigating Facilities/Algorithm.jpg",
       "outputs/Navigating Facilities/screen1.png",
-      "outputs/Navigating Facilities/screen2.png",
       "outputs/Navigating Facilities/screen3.png",
       "outputs/Navigating Facilities/screen4.png",
       "outputs/Navigating Facilities/screen5.png",

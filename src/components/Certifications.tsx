@@ -17,7 +17,8 @@ const certifications = [
     title: "Summer of AI Internship Program – Swecha",
     issuer: "Swecha",
     date: "May 14, 2024 – June 21, 2024",
-    image: asset("cert-swecha.svg"),
+    image: asset("cert-swecha.png"),
+    fallbackImage: asset("cert-swecha.svg"),
     pdf: asset("documents/swecha.pdf"),
   },
   {
@@ -88,6 +89,12 @@ const Certifications = () => {
                     <img
                       src={cert.image}
                       alt={cert.title}
+                      onError={(e) => {
+                        if ((e.target as HTMLImageElement).dataset.fallback) {
+                          (e.target as HTMLImageElement).src = (e.target as HTMLImageElement).dataset.fallback!;
+                        }
+                      }}
+                      data-fallback={cert.fallbackImage}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </a>
@@ -96,6 +103,12 @@ const Certifications = () => {
                     <img
                       src={cert.image}
                       alt={cert.title}
+                      onError={(e) => {
+                        if ((e.target as HTMLImageElement).dataset.fallback) {
+                          (e.target as HTMLImageElement).src = (e.target as HTMLImageElement).dataset.fallback!;
+                        }
+                      }}
+                      data-fallback={cert.fallbackImage}
                       className="w-full h-full object-cover"
                     />
                   </div>
