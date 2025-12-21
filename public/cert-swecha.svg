@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0ea5a4"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <style>
+      .bg { fill: url(#g); }
+      .title { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; fill: #ffffff; font-weight:700; font-size:48px; }
+      .subtitle { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; fill: #ffffff; font-size:20px; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="800" rx="24"/>
+  <g transform="translate(80,120)">
+    <text class="title">Swecha</text>
+    <text class="subtitle" y="56">Summer of AI Internship Program</text>
+    <text class="subtitle" y="96">May 14, 2024 – June 21, 2024</text>
+    <rect x="0" y="140" width="420" height="2" fill="rgba(255,255,255,0.18)" />
+
+    <text class="subtitle" x="0" y="200">Participated in the Summer of AI Internship Program at Swecha.</text>
+    <text class="subtitle" x="0" y="230">Contributions were instrumental in advancing AI solutions for preserving culture</text>
+    <text class="subtitle" x="0" y="260">and supporting language advancement.</text>
+  </g>
+</svg>

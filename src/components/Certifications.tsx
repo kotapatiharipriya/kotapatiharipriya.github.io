@@ -17,7 +17,7 @@ const certifications = [
     title: "Summer of AI Internship Program – Swecha",
     issuer: "Swecha",
     date: "May 14, 2024 – June 21, 2024",
-    image: asset("cert-azure.png"),
+    image: asset("cert-swecha.svg"),
     pdf: "",
     description: "Participated in the Summer of AI Internship Program at Swecha. Contributions were instrumental in advancing the mission to build AI solutions for preserving culture and supporting language advancement.",
   },
