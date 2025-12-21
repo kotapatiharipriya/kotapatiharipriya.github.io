@@ -46,12 +46,19 @@ jobs:
 
       - name: Verify referenced assets exist
         run: |
-          echo "Checking files referenced in dist/index.html"
+          echo "Checking files referenced in dist/index.html (only local relative paths)"
           missing=0
           # extract src/href values from index.html
           for f in $(grep -oP '(?<=src="|href=")[^"]+' dist/index.html); do
-            # normalize leading './'
+            # skip absolute URLs (http:, https:, //), data: and mailto: links
+            if echo "$f" | grep -qE '^(https?:|//|data:|mailto:)'; then
+              echo "SKIP external: $f"
+              continue
+            fi
+            # normalize leading './' or leading '/'
             p=${f#./}
+            p=${p#/}
+            # only check files within dist
             if [ ! -f "dist/$p" ]; then
               echo "MISSING: dist/$p"
               missing=1
@@ -60,7 +67,7 @@ jobs:
             fi
           done
           if [ "$missing" -eq 1 ]; then
-            echo "One or more referenced files are missing. Aborting upload."
+            echo "One or more referenced local files are missing. Aborting upload."
             exit 1
           fi
 
