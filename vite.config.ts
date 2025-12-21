@@ -4,9 +4,9 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // Use relative base path for GitHub Pages deployment
-  // This ensures assets are loaded correctly regardless of the deployment path
-  base: "./",
+  // Use root base path for GitHub Pages user site (username.github.io)
+  // User sites deploy to root domain, so assets must be loaded from /
+  base: "/",
   plugins: [react()],
   build: {
     // Emit deterministic asset names so the deployed site references consistent files.
