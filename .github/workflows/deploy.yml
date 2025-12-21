@@ -50,8 +50,8 @@ jobs:
           echo ""
           echo "=== Verifying critical files ==="
           test -f dist/index.html && echo "✓ index.html exists" || (echo "✗ index.html missing" && exit 1)
-          test -f dist/assets/index.js && echo "✓ index.js exists" || (echo "✗ index.js missing" && exit 1)
-          test -f dist/assets/index.css && echo "✓ index.css exists" || (echo "✗ index.css missing" && exit 1)
+          test -n "$(find dist/assets -name 'index-*.js' -type f)" && echo "✓ index-*.js exists" || (echo "✗ index-*.js missing" && exit 1)
+          test -n "$(find dist/assets -name 'index-*.css' -type f)" && echo "✓ index-*.css exists" || (echo "✗ index-*.css missing" && exit 1)
           test -f dist/.nojekyll && echo "✓ .nojekyll exists" || echo "⚠ .nojekyll missing (may cause issues)"
           test -f dist/favicon.svg && echo "✓ favicon.svg exists" || echo "⚠ favicon.svg missing"
 
