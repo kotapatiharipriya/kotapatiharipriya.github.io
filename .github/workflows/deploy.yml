@@ -35,6 +35,15 @@ jobs:
         env:
           VITE_BASE_PATH: "./"
 
+      - name: Show built dist contents (debug)
+        run: |
+          echo "--- dist index.html (head) ---"
+          head -n 60 dist/index.html || true
+          echo "--- dist listing ---"
+          ls -la dist || true
+          echo "--- dist/assets listing ---"
+          ls -la dist/assets || true
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
