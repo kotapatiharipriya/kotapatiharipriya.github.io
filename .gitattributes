@@ -1,0 +1,30 @@
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# JavaScript files - ensure they're treated as text and served with correct MIME type
+*.js text eol=lf
+*.mjs text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+
+# CSS files
+*.css text eol=lf
+
+# HTML files
+*.html text eol=lf
+*.xml text eol=lf
+*.json text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.ico binary
+*.pdf binary
