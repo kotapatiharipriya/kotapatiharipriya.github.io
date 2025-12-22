@@ -48,18 +48,6 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-semibold text-foreground mb-6">Contact Information</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="text-foreground">San Diego, California, USA</p>
-                </div>
-              </div>
-            </div>
 
             <div className="mt-8">
               <h4 className="text-lg font-semibold text-foreground mb-4">Follow Me</h4>
