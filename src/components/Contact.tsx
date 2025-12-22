@@ -52,31 +52,11 @@ const Contact = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:kotapatiharipriya@gmail.com" className="text-foreground hover:text-primary transition-colors">
-                    kotapatiharipriya@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
                   <p className="text-foreground">San Diego, California, USA</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="text-foreground">+1 (858) 397-3821</p>
                 </div>
               </div>
             </div>
