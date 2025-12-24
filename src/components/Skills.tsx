@@ -33,7 +33,7 @@ const Skills = () => {
               viewport={{ once: true }}
               className="bg-card rounded-lg p-6 border border-border card-hover"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">{category}</h3>
+              <h3 className="text-lg font-semibold text-primary mb-4">{category}</h3>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <span key={skill} className="tech-tag">
